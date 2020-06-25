@@ -11,24 +11,18 @@ public class BadgerManager extends AppCompatActivity {
     MenuBadger menuBadger;
 
     private Context context;
-    private int menu_item_id;
-    private int menu_icon;
-    private Menu menu;
-    private int count;
+    private static int count;
 
-    public BadgerManager(Context context, int menu_item_id, int menu_icon, Menu menu, int count) {
+    public BadgerManager(Context context, int count) {
         this.context = context;
-        this.menu_item_id = menu_item_id;
-        this.menu_icon = menu_icon;
-        this.menu = menu;
         this.count = count;
     }
 
-    public MenuItem setBadgerToMenuICon()
+    public MenuItem setBadgerToMenuICon(Menu menu,int menuIcon,int menuItemID)
     {
       MenuItem menuItem;
-      menuItem = menu.findItem(menu_item_id);
-      menuItem.setIcon(MenuBadger.convertLayoutToImage(context,count,menu_icon));
+      menuItem = menu.findItem(menuItemID);
+      menuItem.setIcon(MenuBadger.convertLayoutToImage(context,count,menuIcon));
       return  menuItem;
     }
 
